@@ -1,0 +1,282 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --ink: #172033;
+  --muted: #64748b;
+  --line: #dbe2ef;
+  --surface: #ffffff;
+  --background: #f4f7fb;
+  --primary: #1d4ed8;
+  --primary-dark: #125c33;
+  --accent: #7c3aed;
+  --success: #15803d;
+  --danger: #b91c1c;
+  --warning: #b45309;
+}
+
+body {
+  margin: 0;
+  color: var(--ink);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.5;
+  background: var(--background);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.site-header {
+  padding: 42px 20px;
+  color: white;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-dark), var(--accent));
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+.eyebrow {
+  margin: 0 0 6px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.site-header .eyebrow {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.page-shell {
+  width: min(1000px, 92%);
+  margin: 30px auto 60px;
+}
+
+.panel {
+  margin-top: 24px;
+  padding: 26px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--surface);
+  box-shadow: 0 14px 34px rgba(15, 23, 42, 0.08);
+}
+
+.section-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.badge {
+  margin: 0;
+  padding: 7px 12px;
+  color: var(--primary-dark);
+  font-weight: 800;
+  border-radius: 999px;
+  background: #dbeafe;
+}
+
+/* form */
+.complaint-form {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.form-field {
+  display: grid;
+  gap: 6px;
+}
+
+.form-field label {
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.form-field input,
+.form-field select,
+.form-field textarea {
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid #94a3b8;
+  border-radius: 9px;
+  resize: vertical;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.primary-button,
+.secondary-button,
+.danger-button {
+  padding: 10px 16px;
+  font-weight: 800;
+  border-radius: 10px;
+  border: 1px solid transparent;
+}
+
+.primary-button {
+  color: white;
+  border-color: var(--primary);
+  background: var(--primary);
+}
+
+.secondary-button {
+  color: var(--primary-dark);
+  border-color: #93c5fd;
+  background: #eff6ff;
+}
+
+.danger-button {
+  color: white;
+  border-color: var(--danger);
+  background: var(--danger);
+}
+
+.message {
+  min-height: 22px;
+  margin: 8px 0 0;
+  font-weight: 700;
+}
+
+.message.error {
+  color: var(--danger);
+}
+
+.message.success {
+  color: var(--success);
+}
+
+/* filter bar */
+.filter-bar {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.filter-bar input,
+.filter-bar select {
+  width: 100%;
+  padding: 9px 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 9px;
+}
+
+/* complaint list */
+.complaint-list {
+  display: grid;
+  gap: 10px;
+}
+
+.complaint-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fafcff;
+  cursor: pointer;
+}
+
+.complaint-card:hover {
+  border-color: var(--primary);
+}
+
+.complaint-card h3 {
+  margin: 0 0 4px;
+  font-size: 1rem;
+}
+
+.complaint-meta {
+  color: var(--muted);
+  font-size: 0.85rem;
+}
+
+.pill {
+  padding: 5px 10px;
+  font-size: 0.78rem;
+  font-weight: 800;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.pill-open {
+  color: var(--warning);
+  background: #fef3c7;
+}
+.pill-in-progress {
+  color: var(--primary-dark);
+  background: #dbeafe;
+}
+.pill-resolved {
+  color: var(--success);
+  background: #dcfce7;
+}
+.pill-cancelled {
+  color: var(--danger);
+  background: #fee2e2;
+}
+
+.empty-state {
+  padding: 20px;
+  color: var(--muted);
+  text-align: center;
+}
+
+/* details */
+.details-body p {
+  margin: 6px 0;
+}
+
+.status-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.status-actions select {
+  padding: 9px 10px;
+  border: 1px solid #94a3b8;
+  border-radius: 9px;
+}
+
+.site-footer {
+  padding: 26px 20px;
+  color: white;
+  text-align: center;
+  background: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .complaint-form,
+  .filter-bar {
+    grid-template-columns: 1fr;
+  }
+
+  .complaint-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

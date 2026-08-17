@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ResidentCare - Apartment/PG Complaint Management</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <p class="eyebrow">Apartment / PG Facility Support</p>
+      <h1>ResidentCare</h1>
+      <p>Submit issues, track status and get them resolved.</p>
+    </header>
+
+    <main class="page-shell">
+      <section class="panel">
+        <p class="eyebrow">Complaint submission form</p>
+        <h2>Submit a Complaint</h2>
+
+        <form id="complaintForm" class="complaint-form">
+          <input type="hidden" id="complaintId" value="" />
+
+          <div class="form-field">
+            <label for="residentName">Resident Name</label>
+            <input
+              id="residentName"
+              type="text"
+              placeholder="e.g. Priya Shetty"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="roomNumber">Room / Flat Number</label>
+            <input
+              id="roomNumber"
+              type="text"
+              placeholder="e.g. B-204"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="contactInfo">Contact Number / Email</label>
+            <input
+              id="contactInfo"
+              type="text"
+              placeholder="e.g. 9876543210"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="category">Complaint Category</label>
+            <select id="category" required>
+              <option value="">Select a category</option>
+              <option value="Electricity">Electricity</option>
+              <option value="Plumbing">Plumbing</option>
+              <option value="Water Supply">Water Supply</option>
+              <option value="Internet">Internet</option>
+              <option value="Housekeeping">Housekeeping</option>
+              <option value="Maintenance">Maintenance</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="priority">Priority</label>
+            <select id="priority" required>
+              <option value="">Select priority</option>
+              <option value="Low">Low</option>
+              <option value="Medium">Medium</option>
+              <option value="High">High</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+
+          <div class="form-field full-width">
+            <label for="description">Description</label>
+            <textarea
+              id="description"
+              rows="3"
+              placeholder="Describe the issue in detail"
+              required
+            ></textarea>
+          </div>
+
+          <div class="form-field full-width">
+            <label for="additionalInfo"
+              >Additional Information (optional)</label
+            >
+            <textarea
+              id="additionalInfo"
+              rows="2"
+              placeholder="Any extra detail, e.g. best time to visit"
+            ></textarea>
+          </div>
+
+          <button
+            class="primary-button full-width"
+            type="submit"
+            id="submitButton"
+          >
+            Submit Complaint
+          </button>
+          <p id="formMessage" class="message" role="status"></p>
+        </form>
+      </section>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">All complaints</p>
+            <h2>Complaint Tracker</h2>
+          </div>
+          <p class="badge" id="complaintCount">0 complaints</p>
+        </div>
+
+        <div class="filter-bar">
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="Search by resident, room or keyword"
+          />
+
+          <select id="categoryFilter">
+            <option value="">All Categories</option>
+            <option value="Electricity">Electricity</option>
+            <option value="Plumbing">Plumbing</option>
+            <option value="Water Supply">Water Supply</option>
+            <option value="Internet">Internet</option>
+            <option value="Housekeeping">Housekeeping</option>
+            <option value="Maintenance">Maintenance</option>
+            <option value="Other">Other</option>
+          </select>
+
+          <select id="statusFilter">
+            <option value="">All Statuses</option>
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+
+        <div id="complaintList" class="complaint-list"></div>
+      </section>
+
+      <section class="panel" id="detailsPanel" hidden>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Selected complaint</p>
+            <h2>Complaint Details</h2>
+          </div>
+          <button id="closeDetails" class="secondary-button" type="button">
+            Close
+          </button>
+        </div>
+
+        <div id="detailsBody" class="details-body"></div>
+
+        <div class="status-actions">
+          <label for="statusSelect">Update status</label>
+          <select id="statusSelect">
+            <option value="Open">Open</option>
+            <option value="In Progress">In Progress</option>
+            <option value="Resolved">Resolved</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+          <button id="updateStatusButton" class="primary-button" type="button">
+            Update Status
+          </button>
+          <button id="editButton" class="secondary-button" type="button">
+            Edit Complaint
+          </button>
+          <button id="deleteButton" class="danger-button" type="button">
+            Delete Complaint
+          </button>
+        </div>
+        <p id="detailsMessage" class="message" role="status"></p>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 ResidentCare Complaint Management</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
