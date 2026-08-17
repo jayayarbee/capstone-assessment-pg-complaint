@@ -3,7 +3,6 @@ PRAGMA foreign_keys = ON;
 DROP TABLE IF EXISTS complaints;
 DROP TABLE IF EXISTS residents;
 
-/* ---------- CREATE ---------- */
 
 CREATE TABLE residents (
     resident_id   INTEGER PRIMARY KEY,
@@ -28,7 +27,7 @@ CREATE TABLE complaints (
     FOREIGN KEY (resident_id) REFERENCES residents(resident_id)
 );
 
-/* ---------- INSERT ---------- */
+
 
 INSERT INTO residents (resident_id, resident_name, room_number, contact_info)
 VALUES (1, 'Priya Shetty', 'B-204', '9876543210');
@@ -50,7 +49,7 @@ VALUES (
   2, 2, 'Plumbing', 'Bathroom tap is leaking continuously', 'Medium', 'In Progress', NULL
 );
 
-/* ---------- READ (verify data) ---------- */
+
 
 SELECT name FROM sqlite_master WHERE type = 'table';
 
@@ -65,26 +64,25 @@ SELECT
 FROM complaints c
 JOIN residents r ON r.resident_id = c.resident_id;
 
-/* ---------- UPDATE ---------- */
 
--- Update complaint status (e.g. mark as resolved)
+
 UPDATE complaints
 SET status = 'Resolved'
 WHERE complaint_id = 2;
 
--- Update complaint description/priority
+
 UPDATE complaints
 SET priority = 'Urgent',
     description = 'Power socket sparked again, needs urgent attention'
 WHERE complaint_id = 1;
 
-/* ---------- DELETE ---------- */
 
--- Cancel/delete a complaint
+
+
 DELETE FROM complaints
 WHERE complaint_id = 2;
 
-/* ---------- Final check ---------- */
+
 
 SELECT * FROM complaints;
 SELECT * FROM residents;
