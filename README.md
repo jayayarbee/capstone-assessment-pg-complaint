@@ -1,6 +1,6 @@
 # ResidentCare — Apartment / PG Complaint Management System
 
-ResidentCare is a web-based **Apartment / PG Complaint Management System** developed as part of the **Full Stack Development Major Capstone Assessment**.
+ResidentCare is a web-based **Apartment / PG Complaint Management System** developed as part of the **Capstone Assessment**.
 
 The system allows residents to submit complaints related to apartment/PG facilities, view and manage submitted complaints, search and filter complaints, and track the current status of their complaints.
 
